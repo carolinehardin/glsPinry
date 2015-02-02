@@ -1,0 +1,41 @@
+{% verbatim %}
+    <script id="lightbox-template" type="text/x-handlebars-template">
+        <div class="lightbox-background">
+            <div class="lightbox-wrapper">
+                <div class="lightbox-image-wrapper">
+                    <img class="lightbox-image" src="{{image.standard.image}}" />
+                </div>
+                <div class="lightbox-data clearfix">
+                {{#if description}}
+                    <div class="description">
+                        <h4>Description:</h4> {{description}}
+                    </div>
+                {{/if}}
+                {{#if learned}}
+                    <div class="learned">
+                        <h4>What I learned.</h4> {{learned}}
+                    </div>
+                {{/if}}
+                <div id="footer-wrapper">
+                    <div class="text pull-left">
+                        <span class="dim">pinned by</span> {{submitter.username}}
+                        {{#if tags}}
+                            <br /><span class="dim">in</span>
+                        {{#each tags}}
+                            <span class="tag"><a href="/pins/tag/{{this}}/" class="btn btn-xs btn-primary">{{this}}</a></span>
+                        {{/each}}
+                        {{/if}}
+                    </div>
+                    <div class="text extra pull-right">
+                        {{#if siteurl}}
+
+                            <a href="http://{{siteurl}}" class="btn btn-sm btn-default btn-warning">Original URL</a>
+                        {{/if}}
+                        <a href="/{{id}}/" class="btn btn-sm btn-default btn-success">Pin URL</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+{% endverbatim %}
